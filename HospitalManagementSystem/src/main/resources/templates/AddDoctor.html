@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Add Doctor</title>
+</head>
+ <style>
+ .styled-table {
+ 	text-align :left;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: black;
+    background-color: rgb(0,255,255);
+   
+}
+#tdc{
+padding: 4px 20px;
+
+}
+#tde{
+padding: 10px 0px 0px 20px;
+
+}
+ 
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+ 
+ body {
+	background-image: url("/indexpic.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: 	#F0F8FF;
+}
+
+.navbar a {
+  float: left;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: #00BFFF;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: #CCFFFF;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #00FFFF;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+ 
+ </style>
+
+<body>
+<div class="navbar">
+  <div class="dropdown">
+    <button  class="dropbtn" ><a th:href="@{'/Admin/Home/'}">Back to Home</a>
+      <i class="fa fa-caret-down"></i>
+    </button>
+    </div>
+
+</div>
+	<div align="center">
+	<form method="post" action=# th:action="@{/save}" th:object="${doctor}">
+		<table align="center" class="styled-table" >
+		 
+			<thead align="center"><td colspan="2"><strong>Enter Doctor Details</strong></td></thead>
+		
+			<tr>
+				<td id="tde"><label for="fname">First Name</label>
+				</td>
+				<td id="tde" ><label for="lname">Last Name</label></td>
+			</tr>
+			
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{fname} placeholder="First Name" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{lname} placeholder="Last Name" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="loginid">Login Id</label>
+				</td>
+				<td id="tde"><label for="password">Password</label></td>
+			</tr>
+			<br>
+			<tr>
+				<td id="tdc"><input type="text" th:field=*{loginid} placeholder="Login Id" required="required"></td>
+				
+				<td id="tdc"><input type="password" th:field=*{password} placeholder="Password" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="emailid">Email Id</label>
+				</td>
+				<td id="tde"><label for="bloodgroup">Blood Group</label></td>
+			</tr>
+			<br>
+			<tr>
+				<td id="tdc"><input type="email" th:field=*{emailid} placeholder="Email id" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{bloodgroup} placeholder="Blood Group" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="dob">Date Of Birth</label>
+				</td>
+				<td id="tde"><label for="age">Age</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"><input type="date" th:field=*{dob}  required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{age} placeholder="Age" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"> <label for="qualification">Qualification</label>
+				</td>
+				<td id="tde"><label for="specialization">Specialization</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{qualification} 	placeholder="Qualification" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{specialization} placeholder="specialization" required="required">
+				</td>
+			</tr>
+		<tfoot align="center"><td colspan="2"><label><button type="submit">ADD</button></label></td></tfoot>
+
+		</table>
+	</form>
+	</div>
+</body>
+</html>

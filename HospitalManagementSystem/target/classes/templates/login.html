@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Login Page</title>
+</head>
+<body>
+
+
+	<style type="text/css">
+	body {
+	background-color: #F0F0F0;
+	background-image: url("/indexpic.jpg");
+	height: 100%;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+	
+body, td, th {
+	color: #000000;
+}
+
+
+button:hover {
+	background-color: aqua;
+}
+
+#d1 {
+	width: 5px 30px;
+	border: 15px;
+	padding: 5px;
+	margin: 20px;
+	background-color: transparent, blue;
+}
+
+table, #d2 {
+	background-color: transparent, white;
+}
+</style>
+</head>
+<body>
+	<div id="d1">
+		<h1 style="text-align: center; font-family: sans-serif; color: aqua;">Welcome
+			to Hospital Management System</h1>
+	</div>
+	<br>
+	<div>
+		<table width="100%" height="100%" border="0" cellpadding="0"
+			align="center">
+			<tr>
+				<td align="center" valign="middle">
+					<table width="350" border="0" cellpadding="3" cellspacing="3">
+
+						<form action="#" th:action="@{/login}" th:object="${user}"
+							method="post">
+
+
+							<tr>
+								<td height="25" colspan="2" align="left" valign="middle"
+									bgcolor="#ffffff">
+									<div id="d2" align="center">
+										<strong>Login</strong>
+									</div>
+
+								</td>
+							</tr>
+
+							<tr>
+								<td>Username</td>
+								<td><input type="text" th:field="*{uname}" required="required" /></td>
+							</tr>
+							<tr>
+								<td>Password</td>
+								<td><input type="password" th:field="*{password}" required="required" /></td>
+							</tr>
+							<tr>
+								<td><label for="role">Role</label></td>
+								<td><label><select id="role" th:field="*{role}">
+										<option value="Admin">Admin</option>
+										<option value="doctor">Doctor</option>
+										<option value="patient">Patient</option>
+										</select></label>
+								</td>
+							</tr>
+							<tr>
+							<td></td>
+								<td colspan="2"><button type="submit" id="btn"
+										align="right">Login</button></td>
+							</tr>
+							<tr>
+							<td></td>
+							<td><span>New Patient? <a href="/" th:href="@{/registration}">Register here</a></span>
+							</td>
+							</tr>
+						</form>
+					</table>
+				</td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

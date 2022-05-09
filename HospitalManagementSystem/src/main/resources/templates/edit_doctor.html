@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Edit Doctor</title>
+</head>
+<style>
+.styled-table {
+ 	text-align :left;
+    border-collapse: collapse;
+    margin: 25px 0;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    color: black;
+    background-color: rgb(0,255,255);
+   
+}
+#tdc{
+padding: 4px 20px;
+
+}
+#tde{
+padding: 10px 0px 0px 20px;
+
+}
+ 
+.styled-table td {
+    padding: 12px 15px;
+}
+
+
+</style>
+<link th:href="@{/css/Homestyle.css}" rel="stylesheet">
+<body>
+
+	<div align="center">
+	<form method="post" action=# th:action="@{/save}" th:object="${doctor}">
+		<table align="center" class="styled-table">
+		 
+			<thead align="center"><td colspan="2"><strong>Enter Doctor Details</strong></td></thead>
+		
+			<tr>
+				<td id="tde"><label for="fname">First Name</label>
+				</td>
+				<td id="tde" ><label for="lname">Last Name</label></td>
+			</tr>
+			
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{fname} placeholder="First Name" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{lname} placeholder="Last Name" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="loginid">Login Id</label>
+				</td>
+				<td id="tde"><label for="password">Password</label></td>
+			</tr>
+			<br>
+			<tr>
+				<td id="tdc"><input type="text" th:field=*{loginid}  required="required"></td>
+				
+				<td id="tdc"><input type="password" th:field=*{password}  required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="emailid">Email Id</label>
+				</td>
+				<td id="tde"><label for="bloodgroup">Blood Group</label></td>
+			</tr>
+			<br>
+			<tr>
+				<td id="tdc"><input type="email" th:field=*{emailid} placeholder="Email id" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{bloodgroup} placeholder="Blood Group" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"><label for="dob">Date Of Birth</label>
+				</td>
+				<td id="tde"><label for="age">Age</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"><input type="date" th:field=*{dob}  required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{age} placeholder="Age" required="required">
+				</td>
+			</tr>
+			<tr>
+				<td id="tde"> <label for="qualification">Qualification</label>
+				</td>
+				<td id="tde"><label for="specialization">Specialization</label></td>
+			</tr>
+		 
+			<tr>
+				<td id="tdc"> <input type="text" th:field=*{qualification} 	placeholder="Qualification" required="required"></td>
+				
+				<td id="tdc"><input type="text" th:field=*{specialization}   required="required"></td>
+			</tr>
+			<tr>
+			<td id="tde"> <label for="id">ID</label>
+				</td>
+				<td>
+				
+				
+				</td>
+				</tr>
+				<tr>
+					<td id="tdc"> <input type="text" th:field=*{id}  readonly="readonly" required="required"></td>
+					<td id="tdc"><label><input type="submit" value="Save" ></label>
+			</tr>
+	 
+
+		</table>
+	</form>
+	</div>
+</body>
+</html>

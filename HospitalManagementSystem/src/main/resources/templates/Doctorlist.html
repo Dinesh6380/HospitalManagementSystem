@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Doctor List</title>
+<link th:href="@{/css/Homestyle.css}" rel="stylesheet">
+
+</head>
+<body>
+	<div class="navbar">
+		<div class="dropdown">
+			<button class="dropbtn">
+				<a th:href="@{'/Admin/Home/'}">Back to Home</a> <i
+					class="fa fa-caret-down"></i>
+			</button>
+		</div>
+	</div>
+
+	<div id="div1" align="center">
+		<h1>Doctors List</h1>
+		
+		<br>
+		<table border="1" cellpadding="10">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email ID</th>
+					<th>Blood Group</th>
+					<th>Age</th>
+					<th>Login ID</th>
+					<th>Password</th>
+					<th>DOB</th>
+					<th>Qualification</th>
+					<th>Specialization</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="doctor : ${listdoctor}">
+					<td th:text="${doctor.id}">ID</td>
+					<td th:text="${doctor.fname}">First Name</td>
+					<td th:text="${doctor.lname}">Last Name</td>
+					<td th:text="${doctor.emailid}">Email ID</td>
+					<td th:text="${doctor.bloodgroup}">Blood Group</td>
+					<td th:text="${doctor.age}">Age</td>
+					<td th:text="${doctor.loginid}">Login ID</td>
+					<td th:text="${doctor.password}">Password</td>
+					<td th:text="${doctor.dob}">DOB</td>
+					<td th:text="${doctor.qualification}">Qualification</td>
+					<td th:text="${doctor.specialization}">Specialization</td>
+					<td><a th:href="@{'/Admin/edit/' + ${doctor.id}}">Edit</a>
+						&nbsp;&nbsp;&nbsp; <a th:href="@{'/Admin/delete/' + ${doctor.id}}">Delete</a>
+					</td>
+					</tr>
+			</tbody>
+		</table>
+	</div>
+
+</body>
+</html>
